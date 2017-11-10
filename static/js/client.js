@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TodoList from './components/TodoList.jsx';
+import Layout from './components/Layout.jsx';
 
-
-ReactDOM.render(
-    <TodoList {...window.__initial_props} />,
-    document.getElementById('todo-list')
-);
+const app = document.getElementById('app')
+ReactDOM.render(<Layout/>, app);
