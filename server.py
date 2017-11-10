@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 settings.configure(
-    RENDER=True,
+    RENDER=False,
     RENDER_URL='http://127.0.0.1:9009/render'
 )
 
@@ -24,7 +24,7 @@ TODOS = [
 @app.route('/')
 def index():
     component = render_component(
-        os.path.join(os.getcwd(), 'static', 'TodoList.jsx'),
+        os.path.join(os.getcwd(), 'static/js/components', 'TodoList.jsx'),
         props={'todos': TODOS},
         to_static_markup=False
     )
@@ -34,4 +34,4 @@ def index():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)

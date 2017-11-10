@@ -1,10 +1,11 @@
 {
-    "name": "heroku-python-react",
+    "name": "cs50final",
     "version": "0.0.1",
     "private": true,
     "scripts": {
         "dev": "webpack --progress --colors --watch",
-        "postinstall": "NODE_ENV=prod webpack -p"
+        "postinstall": "NODE_ENV=prod webpack -p",
+        "watch": "webpack --progress -d --config webpack.config.js --watch"
     },
     "dependencies": {
         "babel-core": "^6.7.4",

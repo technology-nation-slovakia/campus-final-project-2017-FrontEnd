@@ -2,7 +2,7 @@ module.exports = {
   context: __dirname + "/static",
 
   entry: {
-    client: './client.js'
+    client: './js/client.js'
   },
 
   output: {
