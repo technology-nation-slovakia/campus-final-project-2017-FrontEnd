@@ -15,7 +15,7 @@ export default class Layout extends React.Component {
         return(
             <div>
                 <Header />
-                <TodoList />
+                <TodoList {...window.__initial_props} />
                 <h1>{ this.name }</h1>
                 <Map />
                 <Footer />
