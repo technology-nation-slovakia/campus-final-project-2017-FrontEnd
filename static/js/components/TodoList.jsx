@@ -4,7 +4,7 @@ import React from 'react';
 class Todo extends React.Component {
     constructor(props) {
         super(props);
-        this.onRemove = this.onRemove.bind(this);
+//        this.onRemove = this.onRemove.bind(this);
     }
 
     render() {

@@ -1,62 +1,71 @@
 import React from 'react';
 
-function MapAll(props) {
-  return (
-    <svg width="1280" height="640">
-		<Floor />
-		<Kafe />
-		<Hall />
-		<CommonSpace />
-		<GreenMeetingRoom />
-		<g fill="#999999" class="wall" transform="translate(560,280)scale(-1,1)"><DoubleWallH /></g>
-		<PrivateOffices />
-		<BrownMeetingRoom />
-		<OpenSpace />
-		<Terrace />
-		<People />
-		<BubblesFill />
-
-
-    </svg>
-  );
+class MapAll extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {colors: props.colors};
+	}
+	render() {
+	  return (
+	    <svg width="1280" height="640">
+			<Floor color ="999999"/>
+			<Kafe color={this.state.colors[0]}/>
+			<Hall />
+			<CommonSpace />
+			<GreenMeetingRoom color={this.state.colors[1]} />
+			<g fill="#999999" class="wall" transform="translate(560,280)scale(-1,1)"><DoubleWallH /></g>
+			<PrivateOffices color="#999999" />
+			<BrownMeetingRoom color={this.state.colors[2]} />
+			<OpenSpace />
+			<Terrace color={this.state.colors[3]} />
+			<People />
+			<BubblesFill />
+	    </svg>
+	  );
+  }
 }
 
-function PrivateOffices(props) {
-	return (
-		<g fill="#999999">
-			<g class="wall" transform="translate(704,208)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(736,224)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(768,240)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(832,256)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(800,272)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(768,288)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(736,304)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(704,320)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(672,336)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(496,296)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(528,312)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(560,328)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(592,344)"><DoubleWallV /></g>
-		</g>
-	);
+class PrivateOffices extends React.Component {
+	render() {
+		return (
+			<g fill={this.props.color}>
+				<g class="wall" transform="translate(704,208)"><DoubleWallV /></g>
+				<g class="wall" transform="translate(736,224)"><DoubleWallV /></g>
+				<g class="wall" transform="translate(768,240)"><DoubleWallV /></g>
+				<g class="wall" transform="translate(832,256)scale(-1,1)"><DoubleWallH /></g>
+				<g class="wall" transform="translate(800,272)scale(-1,1)"><DoubleWallH /></g>
+				<g class="wall" transform="translate(768,288)scale(-1,1)"><DoubleWallH /></g>
+				<g class="wall" transform="translate(736,304)scale(-1,1)"><DoubleWallH /></g>
+				<g class="wall" transform="translate(704,320)scale(-1,1)"><DoubleWallH /></g>
+				<g class="wall" transform="translate(672,336)scale(-1,1)"><DoubleWallH /></g>
+				<g class="wall" transform="translate(496,296)"><DoubleWallV /></g>
+				<g class="wall" transform="translate(528,312)"><DoubleWallV /></g>
+				<g class="wall" transform="translate(560,328)"><DoubleWallV /></g>
+				<g class="wall" transform="translate(592,344)"><DoubleWallV /></g>
+			</g>
+		);
+	}
 }
 
-function GreenMeetingRoom(props) {
-	return (
-		<g fill="#cc291f">
-			<g class="wall" transform="translate(624,232)"><SingleWall /></g>
-			<g class="wall" transform="translate(608,240)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(640,256)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(560,264)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(544,272)"><SingleWall /></g>
-			<g class="bubble" transform="translate(560,184)"><Bubble /></g>
-		</g>
-	);
+class GreenMeetingRoom extends React.Component {
+	render() {
+		return (
+			<g fill={this.props.color}>
+				<g class="wall" transform="translate(624,232)"><SingleWall /></g>
+				<g class="wall" transform="translate(608,240)"><DoubleWallV /></g>
+				<g class="wall" transform="translate(640,256)scale(-1,1)"><DoubleWallH /></g>
+				<g class="wall" transform="translate(560,264)"><DoubleWallV /></g>
+				<g class="wall" transform="translate(544,272)"><SingleWall /></g>
+				<g class="bubble" transform="translate(560,184)"><Bubble /></g>
+			</g>
+		);
+	}
 }
 
-function BrownMeetingRoom(props) {
+class BrownMeetingRoom extends React.Component {
+	render() {
 	return (
-		<g fill="#cc291f">
+		<g fill={this.props.color}>
 			<g class="wall" transform="translate(512,304)scale(-1,1)"><DoubleWallH /></g>
 			<g class="wall" transform="translate(480,320)scale(-1,1)"><DoubleWallH /></g>
 			<g class="wall" transform="translate(592,344)scale(-1,1)"><DoubleWallH /></g>
@@ -65,8 +74,10 @@ function BrownMeetingRoom(props) {
 		</g>
 	);
 }
+}
 
-function Hall(props) {
+class Hall extends React.Component {
+	render() {
 	return (
 		<g fill="#999999">
 			<g class="wall" transform="translate(720,200)scale(-1,1)"><DoubleWallH /></g>
@@ -74,10 +85,12 @@ function Hall(props) {
 		</g>
 	);
 }
+}
 
-function Kafe(props) {
+class Kafe extends React.Component {
+	render() {
 	return (
-		<g fill="#99cc33">
+		<g fill={this.props.color}>
 			<g class="wall" transform="translate(736,32)scale(-1,1)"><DoubleWallH /></g>
 			<g class="wall" transform="translate(704,48)scale(-1,1)"><DoubleWallH /></g>
 			<g class="wall" transform="translate(672,64)scale(-1,1)"><DoubleWallH /></g>
@@ -101,8 +114,10 @@ function Kafe(props) {
 		</g>
 	);
 }
+}
 
-function CommonSpace(props) {
+class CommonSpace extends React.Component {
+	render() {
 	return (
 		<g fill="#999999">
 			<g class="wall" transform="translate(624,104)"><SingleWall /></g>
@@ -133,10 +148,12 @@ function CommonSpace(props) {
 		</g>
 	);
 }
+}
 
-function Terrace(props) {
+class Terrace extends React.Component {
+	render() {
 	return (
-		<g fill="#99cc33">
+		<g fill={this.props.color}>
 			<g class="wall" transform="translate(208,408)scale(-1,1)"><LowWall /></g>
 			<g class="wall" transform="translate(144,440)scale(-1,1)"><LowWall /></g>
 			<g class="wall" transform="translate(96,464)scale(-1,1)"><LowWall /></g>
@@ -152,8 +169,10 @@ function Terrace(props) {
 		</g>
 	);
 }
+}
 
-function OpenSpace(props) {
+class OpenSpace extends React.Component {
+	render() {
 	return (
 		<g fill="#999999">
 			<g class="wall" transform="translate(384,304)scale(-1,1)"><DoubleWallH /></g>
@@ -178,8 +197,10 @@ function OpenSpace(props) {
 		</g>
 	);
 }
+}
 
-function Stairs(props) {
+class Stairs extends React.Component {
+	render() {
 	return (
 		<g class="stairs" transform="translate(600,128)">
 			<polygon fill="#999999" points="32,0 28,2 28,4 24,6 24,8 20,10 20,12 16,14 16,16 12,18 12,20 8,22 8,24 4,26 4,28 0,30 0,32    16,40 20,38 20,36 24,34 24,32 28,30 28,28 32,26 32,24 36,22 36,20 40,18 40,16 44,14 44,12 48,10 48,8  "/>
@@ -195,8 +216,10 @@ function Stairs(props) {
 		</g>
 	);
 }
+}
 
-function People(props) {
+class People extends React.Component {
+	render() {
 	return (
 		<g>
 			<g transform="translate(168,436)scale(0.35000000000000003)">
@@ -236,8 +259,10 @@ function People(props) {
 		</g>
 	);
 }
+}
 
-function Bubble(props) {
+class Bubble extends React.Component {
+	render() {
 	return (
 		<g>
 			<path d="M0,43.8c0-13.3,10.7-29.4,24-36c4-2,7.7-2.9,11-2.8c7.7,0.1,20,6.7,20,16c0,5.7-7,11.9-10.3,17.6L32,76   l-8-4.2L5.3,56.2C2,53.7,0,49.5,0,43.8z"/>
@@ -247,8 +272,10 @@ function Bubble(props) {
 		</g>
 	);
 }
+}
 
-function BubblesFill(props) {
+class BubblesFill extends React.Component {
+	render() {
 	return (
 		<g>
 			<g transform="translate(520,296)scale(-1,1)">
@@ -267,9 +294,12 @@ function BubblesFill(props) {
 		</g>
 
 	);
+
+}
 }
 
-function LowWallH(props) {
+class LowWallH extends React.Component {
+	render() {
 	return (
 		<g>
 			<polygon points="16,0.4 0.4,8.2 0.4,15.8 64,47.6 79.6,39.8 79.6,32.2  "/>
@@ -286,8 +316,10 @@ function LowWallH(props) {
 		</g>
 	);
 }
+}
 
-function LowWall(props) {
+class LowWall extends React.Component {
+	render() {
 	return (
 		<g>
 			<polygon points="16,0.4 0.4,8.2 0.4,15.8 64,47.6 79.6,39.8 79.6,32.2  "/>
@@ -304,8 +336,10 @@ function LowWall(props) {
 		</g>
 	);
 }
+}
 
-function SingleWall(props) {
+class SingleWall extends React.Component {
+	render() {
   return (
     <g>
     	<polygon points="16,0.4 0.4,8.2 0.4,31.8 16,39.6 31.6,31.8 31.6,8.2  "/>
@@ -316,8 +350,10 @@ function SingleWall(props) {
     </g>
    );
 }
+}
 
-function DoubleWallV(props) {
+class DoubleWallV extends React.Component {
+	render() {
   return (
     <g>
     	<polygon points="16,0.4 0.4,8.2 0.4,31.8 32,47.6 47.6,39.8 47.6,16.2  "/>
@@ -330,8 +366,10 @@ function DoubleWallV(props) {
     </g>
    );
 }
+}
 
-function DoubleWallH(props) {
+class DoubleWallH extends React.Component {
+	render() {
   return (
 	<g>
 		<polygon points="16,0.4 0.4,8.2 0.4,31.8 32,47.6 47.6,39.8 47.6,16.2  "/>
@@ -344,42 +382,44 @@ function DoubleWallH(props) {
 	</g>
    );
 }
-
-function Floor(props) {
-	return (
-  		<g>
-	  		<g id="i100_5_" transform="translate(430,200)scale(3)">
-				<polygon class="floor_room" points="74.833,-23.667 98.6,-15.6 82,-2.8 94.5,4.333 -4.167,53.667 -41,34.667 						"/>
-			</g>
-			<g id="i100_4_" transform="translate(432,200)scale(3)">
-				<polygon class="floor_room" points="87.102,11.5 119.236,27.167 61.902,58.167 29.831,41.183 						"/>
-			</g>
-			<g id="i100_2_" transform="translate(432,200)scale(3)">
-				<polygon class="floor" points="96.74,-45.367 165.2,-10.5 114.667,15 80,-2.8 100.254,-14.797 72.12,-31.867 						"/>
-			</g>
-			<g id="i100_6_" transform="translate(427,200)scale(3)">
-				<polygon class="floor" points="53.629,12.4 76.562,23.867 53.629,35.334 30.695,23.867 						"/>
-			</g>
-			<g id="i100_3_" transform="translate(432,200)scale(3)">
-				<polygon class="floor" points="25.21,41.532 44.012,50.933 25.21,60.333 6.409,50.933 						"/>
-			</g>
-			<g id="i100_1_" transform="translate(425,200)scale(3)">
-				<polygon class="floor_room" points="-21.119,43.967 35.734,71.9 -21.119,99.833 -77.972,71.9 						"/>
-			</g>
-			<g id="i100" transform="translate(430,200)scale(3)">
-				<polygon class="floor" points="-79.867,71 -15.867,103 -79.867,135 -143.867,103 						"/>
-			</g>
-		</g>
-	);
 }
+
+class Floor extends React.Component {
+	render() {
+		return (
+	  		<g fill={this.props.color}>
+		  		<g id="i100_5_" transform="translate(430,200)scale(3)">
+					<polygon class="floor_room" points="74.833,-23.667 98.6,-15.6 82,-2.8 94.5,4.333 -4.167,53.667 -41,34.667 						"/>
+				</g>
+				<g id="i100_4_" transform="translate(432,200)scale(3)">
+					<polygon class="floor_room" points="87.102,11.5 119.236,27.167 61.902,58.167 29.831,41.183 						"/>
+				</g>
+				<g id="i100_2_" transform="translate(432,200)scale(3)">
+					<polygon class="floor" points="96.74,-45.367 165.2,-10.5 114.667,15 80,-2.8 100.254,-14.797 72.12,-31.867 						"/>
+				</g>
+				<g id="i100_6_" transform="translate(427,200)scale(3)">
+					<polygon class="floor" points="53.629,12.4 76.562,23.867 53.629,35.334 30.695,23.867 						"/>
+				</g>
+				<g id="i100_3_" transform="translate(432,200)scale(3)">
+					<polygon class="floor" points="25.21,41.532 44.012,50.933 25.21,60.333 6.409,50.933 						"/>
+				</g>
+				<g id="i100_1_" transform="translate(425,200)scale(3)">
+					<polygon class="floor_room" points="-21.119,43.967 35.734,71.9 -21.119,99.833 -77.972,71.9 						"/>
+				</g>
+				<g id="i100" transform="translate(430,200)scale(3)">
+					<polygon class="floor" points="-79.867,71 -15.867,103 -79.867,135 -143.867,103 						"/>
+				</g>
+			</g>
+		);
+	}
+}
+
 
 export default class Map extends React.Component {
 	render() {
     	return (
     		<div className="map">
-        		<div>
-	        		<MapAll />
-        		</div>
+        		<MapAll {...window.__initial_props}/>
     		</div>
     	);
 	}
