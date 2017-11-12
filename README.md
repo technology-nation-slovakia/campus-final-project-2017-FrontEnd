@@ -27,5 +27,13 @@ https://github.com/chosak/heroku-python-react
 
     https://docs.npmjs.com/getting-started/updating-local-packages
 
+-   bootstrap4 from:  https://getbootstrap.com/docs/4.0/getting-started/introduction/
+    would be better to do bootstrap whitout jQuery: https://github.com/tagawa/bootstrap-without-jquery
+    or https://github.com/thednp/bootstrap.native
+    (maybe next milestone)
 
-    dafad
+-   npm install react-router
+-   npm install history
+-   npm install react-router-dom :  https://stackoverflow.com/questions/43008036/the-prop-history-is-marked-as-required-in-router-but-its-value-is-undefine
+-   routes made as in: https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
+    because of react-router v 4
