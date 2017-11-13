@@ -24,8 +24,10 @@ https://github.com/chosak/heroku-python-react
 
 -   RUN npm update  in the same directory as your package.json file
     Test: Run npm outdated. There should not be any result
-
     https://docs.npmjs.com/getting-started/updating-local-packages
+
+-   hard refresh webbrowser each time!
+    https://stackoverflow.com/questions/12633425/chrome-browser-reload-options-new-feature
 
 -   bootstrap4 from:  https://getbootstrap.com/docs/4.0/getting-started/introduction/
     would be better to do bootstrap whitout jQuery: https://github.com/tagawa/bootstrap-without-jquery

@@ -1,28 +1,34 @@
 import React from 'react';
 
+import MapColorStore from '../stores/MapColorStores';
+
 class MapAll extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {colors: props.colors};
+	constructor() {
+		super();
+		this.state = {
+			colors: MapColorStore.getAll(),
+		};
 	}
 	render() {
 		const mapStyle = {
     		marginTop: "30px"
 		};
 
+		const { colorCaffe, colorGreen, colorTerrace, colorBrown } = this.state.colors;
+
 	  return (
 	  	<div style={mapStyle}>
 		    <svg width="1280" height="640">
 				<Floor color ="999999"/>
-				<Kafe color={this.state.colors[0]}/>
+				<Kafe color={colorCaffe}/>
 				<Hall />
 				<CommonSpace />
-				<GreenMeetingRoom color={this.state.colors[1]} />
+				<GreenMeetingRoom color={colorGreen} />
 				<g fill="#999999" className="wall" transform="translate(560,280)scale(-1,1)"><DoubleWallH /></g>
 				<PrivateOffices color="#999999" />
-				<BrownMeetingRoom color={this.state.colors[2]} />
+				<BrownMeetingRoom color={colorBrown} />
 				<OpenSpace />
-				<Terrace color={this.state.colors[3]} />
+				<Terrace color={colorTerrace} />
 				<People />
 				<BubblesFill />
 		    </svg>
