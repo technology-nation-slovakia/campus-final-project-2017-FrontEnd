@@ -23,12 +23,12 @@ settings.configure(
 @app.route('/')
 def index():
 
-    # set the colors of rooms [kafe, green, brown, terrace]
+    #set the colors of rooms [kafe, green, brown, terrace]
     colors = ['#99cc33', '#cc291f', '#cc291f', '#99cc33']
 
     component = render_component(
         os.path.join(os.getcwd(), 'static/js/components', 'Map.jsx'),
-#        props={'todos': TODOS},
+        #props={'todos': TODOS},
         props={'colors': colors},
         to_static_markup=False
     )

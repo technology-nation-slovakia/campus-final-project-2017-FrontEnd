@@ -6,17 +6,14 @@ import Contact from '../pages/Contact';
 import Home from '../pages/Home';
 
 
-export default class Main extends React.Component {
+const Main = () => (
+    <main>
+        <Switch>
+            <Route exact path='/' name="home" component={Home}/>
+            <Route path='/about' name="about" component={About}/>
+            <Route path='/contact' name="contact" component={Contact}/>
+        </Switch>
+    </main>
+)
 
-    render() {
-        return(
-            <main>
-                <Switch>
-                    <Route exact path='/' component={Home}/>
-                    <Route path='/about' component={About}/>
-                    <Route path='/contact' component={Contact}/>
-                </Switch>
-            </main>
-        );
-    }
-}
+export default Main

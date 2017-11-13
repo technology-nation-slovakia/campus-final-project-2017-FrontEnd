@@ -6,21 +6,27 @@ class MapAll extends React.Component {
 		this.state = {colors: props.colors};
 	}
 	render() {
+		const mapStyle = {
+    		marginTop: "30px"
+		};
+
 	  return (
-	    <svg width="1280" height="640">
-			<Floor color ="999999"/>
-			<Kafe color={this.state.colors[0]}/>
-			<Hall />
-			<CommonSpace />
-			<GreenMeetingRoom color={this.state.colors[1]} />
-			<g fill="#999999" class="wall" transform="translate(560,280)scale(-1,1)"><DoubleWallH /></g>
-			<PrivateOffices color="#999999" />
-			<BrownMeetingRoom color={this.state.colors[2]} />
-			<OpenSpace />
-			<Terrace color={this.state.colors[3]} />
-			<People />
-			<BubblesFill />
-	    </svg>
+	  	<div style={mapStyle}>
+		    <svg width="1280" height="640">
+				<Floor color ="999999"/>
+				<Kafe color={this.state.colors[0]}/>
+				<Hall />
+				<CommonSpace />
+				<GreenMeetingRoom color={this.state.colors[1]} />
+				<g fill="#999999" className="wall" transform="translate(560,280)scale(-1,1)"><DoubleWallH /></g>
+				<PrivateOffices color="#999999" />
+				<BrownMeetingRoom color={this.state.colors[2]} />
+				<OpenSpace />
+				<Terrace color={this.state.colors[3]} />
+				<People />
+				<BubblesFill />
+		    </svg>
+	    </div>
 	  );
   }
 }
@@ -29,19 +35,19 @@ class PrivateOffices extends React.Component {
 	render() {
 		return (
 			<g fill={this.props.color}>
-				<g class="wall" transform="translate(704,208)"><DoubleWallV /></g>
-				<g class="wall" transform="translate(736,224)"><DoubleWallV /></g>
-				<g class="wall" transform="translate(768,240)"><DoubleWallV /></g>
-				<g class="wall" transform="translate(832,256)scale(-1,1)"><DoubleWallH /></g>
-				<g class="wall" transform="translate(800,272)scale(-1,1)"><DoubleWallH /></g>
-				<g class="wall" transform="translate(768,288)scale(-1,1)"><DoubleWallH /></g>
-				<g class="wall" transform="translate(736,304)scale(-1,1)"><DoubleWallH /></g>
-				<g class="wall" transform="translate(704,320)scale(-1,1)"><DoubleWallH /></g>
-				<g class="wall" transform="translate(672,336)scale(-1,1)"><DoubleWallH /></g>
-				<g class="wall" transform="translate(496,296)"><DoubleWallV /></g>
-				<g class="wall" transform="translate(528,312)"><DoubleWallV /></g>
-				<g class="wall" transform="translate(560,328)"><DoubleWallV /></g>
-				<g class="wall" transform="translate(592,344)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(704,208)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(736,224)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(768,240)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(832,256)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(800,272)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(768,288)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(736,304)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(704,320)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(672,336)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(496,296)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(528,312)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(560,328)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(592,344)"><DoubleWallV /></g>
 			</g>
 		);
 	}
@@ -51,12 +57,12 @@ class GreenMeetingRoom extends React.Component {
 	render() {
 		return (
 			<g fill={this.props.color}>
-				<g class="wall" transform="translate(624,232)"><SingleWall /></g>
-				<g class="wall" transform="translate(608,240)"><DoubleWallV /></g>
-				<g class="wall" transform="translate(640,256)scale(-1,1)"><DoubleWallH /></g>
-				<g class="wall" transform="translate(560,264)"><DoubleWallV /></g>
-				<g class="wall" transform="translate(544,272)"><SingleWall /></g>
-				<g class="bubble" transform="translate(560,184)"><Bubble /></g>
+				<g className="wall" transform="translate(624,232)"><SingleWall /></g>
+				<g className="wall" transform="translate(608,240)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(640,256)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(560,264)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(544,272)"><SingleWall /></g>
+				<g className="bubble" transform="translate(560,184)"><Bubble /></g>
 			</g>
 		);
 	}
@@ -66,11 +72,11 @@ class BrownMeetingRoom extends React.Component {
 	render() {
 	return (
 		<g fill={this.props.color}>
-			<g class="wall" transform="translate(512,304)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(480,320)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(592,344)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(560,360)scale(-1,1)"><DoubleWallH /></g>
-			<g class="bubble" transform="translate(472,288)"><Bubble /></g>
+			<g className="wall" transform="translate(512,304)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(480,320)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(592,344)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(560,360)scale(-1,1)"><DoubleWallH /></g>
+			<g className="bubble" transform="translate(472,288)"><Bubble /></g>
 		</g>
 	);
 }
@@ -80,8 +86,8 @@ class Hall extends React.Component {
 	render() {
 	return (
 		<g fill="#999999">
-			<g class="wall" transform="translate(720,200)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(688,216)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(720,200)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(688,216)scale(-1,1)"><DoubleWallH /></g>
 		</g>
 	);
 }
@@ -91,26 +97,26 @@ class Kafe extends React.Component {
 	render() {
 	return (
 		<g fill={this.props.color}>
-			<g class="wall" transform="translate(736,32)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(704,48)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(672,64)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(608,80)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(640,96)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(672,112)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(736,128)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(720,40)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(752,56)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(784,72)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(816,88)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(848,104)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(880,120)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(912,136)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(944,152)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(912,168)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(880,184)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(848,200)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(816,216)scale(-1,1)"><DoubleWallH /></g>
-			<g class="bubble" transform="translate(768,112)"><Bubble /></g>
+			<g className="wall" transform="translate(736,32)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(704,48)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(672,64)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(608,80)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(640,96)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(672,112)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(736,128)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(720,40)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(752,56)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(784,72)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(816,88)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(848,104)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(880,120)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(912,136)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(944,152)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(912,168)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(880,184)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(848,200)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(816,216)scale(-1,1)"><DoubleWallH /></g>
+			<g className="bubble" transform="translate(768,112)"><Bubble /></g>
 		</g>
 	);
 }
@@ -120,30 +126,30 @@ class CommonSpace extends React.Component {
 	render() {
 	return (
 		<g fill="#999999">
-			<g class="wall" transform="translate(624,104)"><SingleWall /></g>
-			<g class="wall" transform="translate(640,112)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(608,128)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(576,144)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(544,160)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(512,176)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(480,192)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(448,208)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(416,224)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(384,240)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(352,256)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(288,272)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(320,288)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(704,144)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(544,160)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(576,208)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(576,176)"><SingleWall /></g>
-			<g class="wall" transform="translate(640,176)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(448,208)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(480,224)"><SingleWall /></g>
-			<g class="wall" transform="translate(544,224)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(512,240)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(448,272)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(416,288)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(624,104)"><SingleWall /></g>
+			<g className="wall" transform="translate(640,112)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(608,128)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(576,144)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(544,160)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(512,176)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(480,192)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(448,208)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(416,224)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(384,240)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(352,256)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(288,272)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(320,288)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(704,144)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(544,160)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(576,208)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(576,176)"><SingleWall /></g>
+			<g className="wall" transform="translate(640,176)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(448,208)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(480,224)"><SingleWall /></g>
+			<g className="wall" transform="translate(544,224)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(512,240)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(448,272)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(416,288)scale(-1,1)"><DoubleWallH /></g>
 			<Stairs />
 		</g>
 	);
@@ -154,18 +160,18 @@ class Terrace extends React.Component {
 	render() {
 	return (
 		<g fill={this.props.color}>
-			<g class="wall" transform="translate(208,408)scale(-1,1)"><LowWall /></g>
-			<g class="wall" transform="translate(144,440)scale(-1,1)"><LowWall /></g>
-			<g class="wall" transform="translate(96,464)scale(-1,1)"><LowWall /></g>
-			<g class="wall" transform="translate(0,496)"><LowWallH /></g>
-			<g class="wall" transform="translate(64,528)"><LowWallH /></g>
-			<g class="wall" transform="translate(240,440)"><LowWallH /></g>
-			<g class="wall" transform="translate(288,464)"><LowWallH /></g>
-			<g class="wall" transform="translate(384,496)scale(-1,1)"><LowWall /></g>
-			<g class="wall" transform="translate(336,520)scale(-1,1)"><LowWall /></g>
-			<g class="wall" transform="translate(272,552)scale(-1,1)"><LowWall /></g>
-			<g class="wall" transform="translate(128,560)"><LowWallH /></g>
-			<g class="bubble" transform="translate(184,440)"><Bubble /></g>
+			<g className="wall" transform="translate(208,408)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(144,440)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(96,464)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(0,496)"><LowWallH /></g>
+			<g className="wall" transform="translate(64,528)"><LowWallH /></g>
+			<g className="wall" transform="translate(240,440)"><LowWallH /></g>
+			<g className="wall" transform="translate(288,464)"><LowWallH /></g>
+			<g className="wall" transform="translate(384,496)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(336,520)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(272,552)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(128,560)"><LowWallH /></g>
+			<g className="bubble" transform="translate(184,440)"><Bubble /></g>
 		</g>
 	);
 }
@@ -175,25 +181,25 @@ class OpenSpace extends React.Component {
 	render() {
 	return (
 		<g fill="#999999">
-			<g class="wall" transform="translate(384,304)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(352,320)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(320,336)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(288,352)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(256,368)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(192,384)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(416,336)"><SingleWall /></g>
-			<g class="wall" transform="translate(432,344)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(464,360)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(496,376)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(560,392)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(528,408)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(496,424)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(464,440)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(432,456)scale(-1,1)"><DoubleWallH /></g>
-			<g class="wall" transform="translate(256,416)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(288,432)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(320,448)"><DoubleWallV /></g>
-			<g class="wall" transform="translate(352,464)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(384,304)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(352,320)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(320,336)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(288,352)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(256,368)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(192,384)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(416,336)"><SingleWall /></g>
+			<g className="wall" transform="translate(432,344)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(464,360)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(496,376)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(560,392)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(528,408)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(496,424)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(464,440)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(432,456)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(256,416)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(288,432)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(320,448)"><DoubleWallV /></g>
+			<g className="wall" transform="translate(352,464)"><DoubleWallV /></g>
 		</g>
 	);
 }
@@ -202,7 +208,7 @@ class OpenSpace extends React.Component {
 class Stairs extends React.Component {
 	render() {
 	return (
-		<g class="stairs" transform="translate(600,128)">
+		<g className="stairs" transform="translate(600,128)">
 			<polygon fill="#999999" points="32,0 28,2 28,4 24,6 24,8 20,10 20,12 16,14 16,16 12,18 12,20 8,22 8,24 4,26 4,28 0,30 0,32    16,40 20,38 20,36 24,34 24,32 28,30 28,28 32,26 32,24 36,22 36,20 40,18 40,16 44,14 44,12 48,10 48,8  "/>
 			<polygon fill="#000000" opacity="0.11" points="0,30 16,38 16,40 0,32  "/>
 			<polygon fill="#000000" opacity="0.11" points="4,26 20,34 20,36 4,28  "/>
@@ -389,25 +395,25 @@ class Floor extends React.Component {
 		return (
 	  		<g fill={this.props.color}>
 		  		<g id="i100_5_" transform="translate(430,200)scale(3)">
-					<polygon class="floor_room" points="74.833,-23.667 98.6,-15.6 82,-2.8 94.5,4.333 -4.167,53.667 -41,34.667 						"/>
+					<polygon className="floor_room" points="74.833,-23.667 98.6,-15.6 82,-2.8 94.5,4.333 -4.167,53.667 -41,34.667 						"/>
 				</g>
 				<g id="i100_4_" transform="translate(432,200)scale(3)">
-					<polygon class="floor_room" points="87.102,11.5 119.236,27.167 61.902,58.167 29.831,41.183 						"/>
+					<polygon className="floor_room" points="87.102,11.5 119.236,27.167 61.902,58.167 29.831,41.183 						"/>
 				</g>
 				<g id="i100_2_" transform="translate(432,200)scale(3)">
-					<polygon class="floor" points="96.74,-45.367 165.2,-10.5 114.667,15 80,-2.8 100.254,-14.797 72.12,-31.867 						"/>
+					<polygon className="floor" points="96.74,-45.367 165.2,-10.5 114.667,15 80,-2.8 100.254,-14.797 72.12,-31.867 						"/>
 				</g>
 				<g id="i100_6_" transform="translate(427,200)scale(3)">
-					<polygon class="floor" points="53.629,12.4 76.562,23.867 53.629,35.334 30.695,23.867 						"/>
+					<polygon className="floor" points="53.629,12.4 76.562,23.867 53.629,35.334 30.695,23.867 						"/>
 				</g>
 				<g id="i100_3_" transform="translate(432,200)scale(3)">
-					<polygon class="floor" points="25.21,41.532 44.012,50.933 25.21,60.333 6.409,50.933 						"/>
+					<polygon className="floor" points="25.21,41.532 44.012,50.933 25.21,60.333 6.409,50.933 						"/>
 				</g>
 				<g id="i100_1_" transform="translate(425,200)scale(3)">
-					<polygon class="floor_room" points="-21.119,43.967 35.734,71.9 -21.119,99.833 -77.972,71.9 						"/>
+					<polygon className="floor_room" points="-21.119,43.967 35.734,71.9 -21.119,99.833 -77.972,71.9 						"/>
 				</g>
 				<g id="i100" transform="translate(430,200)scale(3)">
-					<polygon class="floor" points="-79.867,71 -15.867,103 -79.867,135 -143.867,103 						"/>
+					<polygon className="floor" points="-79.867,71 -15.867,103 -79.867,135 -143.867,103 						"/>
 				</g>
 			</g>
 		);

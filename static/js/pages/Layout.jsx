@@ -4,17 +4,18 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Main from '../components/Main';
 import Map from '../components/Map';
+import Example from '../components/Example';
 
-export default class Layout extends React.Component {
-    render() {
-        return(
-            <div>
-                <Header />
-                <Main />
-                <Map />
-                <Footer />
-            </div>
 
-        );
-    }
-}
+
+
+const Layout = () => (
+    <div>
+        <Header />
+        <Map />
+        <Example />
+        <Footer />
+    </div>
+)
+
+export default Layout

@@ -1,13 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from "react-router-dom";
+import { render } from 'react-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Layout from './pages/Layout';
+import Example from './components/Example';
 
 const app = document.getElementById('app')
 
-ReactDOM.render(
-    <BrowserRouter>
+render((
+    <Router>
         <Layout />
-    </BrowserRouter>,
-app);
+    </Router>
+),app);
