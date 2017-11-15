@@ -1,14 +1,39 @@
 import React from 'react';
 
-import MapColorStore from '../stores/MapColorStores';
+import MapColorStore from '../stores/MapColorStore';
+import * as MapColorActions from '../actions/MapColorActions';
 
 class MapAll extends React.Component {
 	constructor() {
 		super();
+		this.getMapColor = this.getMapColor.bind(this);
 		this.state = {
 			colors: MapColorStore.getAll(),
 		};
 	}
+
+
+	getMapColor() {
+		this.setState({
+				colors: MapColorStore.getAll(),
+		});
+	}
+	//only fires once on start and listen to change
+	componentWillMount() {
+		MapColorStore.on("change", this.getMapColor);
+	}
+	//prevent memory leak REACT FLUX TUTORIAL #14 - React & Flux Memory Leaks
+	componentWillUnmount() {
+		MapColorStore.removeListener("change", this.geMapColor);
+
+	}
+
+
+
+	reloadMapColor() {
+		MapColorActions.reloadMapColor();
+	}
+
 	render() {
 		const mapStyle = {
     		marginTop: "30px"
@@ -32,6 +57,7 @@ class MapAll extends React.Component {
 				<People />
 				<BubblesFill />
 		    </svg>
+		    <button onClick={this.reloadMapColor.bind(this)}>Reload!</button>
 	    </div>
 	  );
   }

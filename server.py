@@ -1,8 +1,9 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from react.conf import settings
 from react.render import render_component
+
 
 
 app = Flask(__name__)
@@ -14,10 +15,25 @@ settings.configure(
 )
 
 
+#fake data
+colorData = {'id' : 3,
+            'text' : 'tri',
+            'complete' : 'false',
+            'colorCaffe' : '#cc291f',
+            'colorGreen' : '#cc291f',
+            'colorBrown' : '#cc291f',
+            'colorTerrace' :  '#99cc33',
+        }
+
 @app.route('/')
 def index():
 
     return render_template('index.html')
+
+@app.route('/data')
+def data():
+    d = colorData
+    return jsonify(d)
 
 
 if __name__ == '__main__':

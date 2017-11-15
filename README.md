@@ -39,3 +39,9 @@ https://github.com/chosak/heroku-python-react
 -   npm install react-router-dom :  https://stackoverflow.com/questions/43008036/the-prop-history-is-marked-as-required-in-router-but-its-value-is-undefine
 -   routes made as in: https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
     because of react-router v 4
+
+-   npm install flux   REACT JS TUTORIAL #11:
+    https://www.youtube.com/watch?v=MZfCVq5iCBw&list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b&index=11
+
+-   npm install axios REACT JS TUTORIAL #13: 01:00
+    https://www.youtube.com/watch?v=CuYd9uDB0vg&index=13&list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b
