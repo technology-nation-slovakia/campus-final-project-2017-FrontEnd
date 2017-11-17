@@ -8,7 +8,6 @@ import Example from '../components/Example';
 
 
 
-
 const Layout = () => (
     <div>
         <Header />
@@ -16,6 +15,6 @@ const Layout = () => (
         <Example />
         <Footer />
     </div>
-)
+);
 
-export default Layout
+export default Layout;

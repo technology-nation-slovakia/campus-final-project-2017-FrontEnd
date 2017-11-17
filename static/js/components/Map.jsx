@@ -3,6 +3,7 @@ import React from 'react';
 import MapColorStore from '../stores/MapColorStore';
 import * as MapColorActions from '../actions/MapColorActions';
 
+
 class MapAll extends React.Component {
 	constructor() {
 		super();
@@ -44,13 +45,13 @@ class MapAll extends React.Component {
 	  return (
 	  	<div style={mapStyle}>
 		    <svg width="1280" height="640">
-				<Floor color ="999999"/>
+				<Floor color ="#999999"/>
 				<Kafe color={colorCaffe}/>
 				<Hall />
 				<CommonSpace />
-				<GreenMeetingRoom color={colorGreen} />
 				<g fill="#999999" className="wall" transform="translate(560,280)scale(-1,1)"><DoubleWallH /></g>
 				<PrivateOffices color="#999999" />
+				<GreenMeetingRoom color={colorGreen} />
 				<BrownMeetingRoom color={colorBrown} />
 				<OpenSpace />
 				<Terrace color={colorTerrace} />
@@ -61,6 +62,14 @@ class MapAll extends React.Component {
 	    </div>
 	  );
   }
+}
+
+class Rect extends React.Component {
+	render() {
+		return (
+			<g><rect className="description" x={this.props.xposition} y={this.props.yposition} width="320" height="100" opacity = "0.95" /></g>
+		);
+	}
 }
 
 class PrivateOffices extends React.Component {
@@ -94,7 +103,14 @@ class GreenMeetingRoom extends React.Component {
 				<g className="wall" transform="translate(640,256)scale(-1,1)"><DoubleWallH /></g>
 				<g className="wall" transform="translate(560,264)"><DoubleWallV /></g>
 				<g className="wall" transform="translate(544,272)"><SingleWall /></g>
-				<g className="bubble" transform="translate(560,184)"><Bubble /></g>
+				<g id="Bubble_Green" className="bubble" transform="translate(560,184)"><Bubble /></g>
+				<g id="Rect_Green" opacity="0"><Rect xposition="665" yposition="230" />
+					<text className="desc" x="685" y="250">
+					<tspan x="685" dy="0.4em">Green Meeting Room</tspan>
+        			<tspan x="685" dy="1.8em">Now: </tspan>
+        			<tspan x="685" dy="1.4em">Next: </tspan>
+				</text>
+				</g>
 			</g>
 		);
 	}
@@ -108,7 +124,14 @@ class BrownMeetingRoom extends React.Component {
 			<g className="wall" transform="translate(480,320)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(592,344)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(560,360)scale(-1,1)"><DoubleWallH /></g>
-			<g className="bubble" transform="translate(472,288)"><Bubble /></g>
+			<g id="Bubble_Brown" className="bubble" transform="translate(472,288)"><Bubble /></g>
+			<g id="Rect_Brown" opacity="0"><Rect xposition="585" yposition="330" />
+				<text className="desc" x="605" y="350">
+					<tspan x="605" dy="0.4em">Brown Meeting Room</tspan>
+        			<tspan x="605" dy="1.8em">Now: </tspan>
+        			<tspan x="605" dy="1.4em">Next: </tspan>
+				</text>
+			</g>
 		</g>
 	);
 }
@@ -148,7 +171,14 @@ class Kafe extends React.Component {
 			<g className="wall" transform="translate(880,184)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(848,200)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(816,216)scale(-1,1)"><DoubleWallH /></g>
-			<g className="bubble" transform="translate(768,112)"><Bubble /></g>
+			<g id="Bubble_Kafe" className="bubble" transform="translate(768,112)"><Bubble /></g>
+			<g id="Rect_Kafe" opacity="0"><Rect xposition="850" yposition="110" />
+				<text className="desc" x="870" y="130">
+					<tspan x="870" dy="0.4em">Kafe</tspan>
+        			<tspan x="870" dy="1.8em">Now: </tspan>
+        			<tspan x="870" dy="1.4em">Next: </tspan>
+				</text>
+			</g>
 		</g>
 	);
 }
@@ -203,7 +233,14 @@ class Terrace extends React.Component {
 			<g className="wall" transform="translate(336,520)scale(-1,1)"><LowWall /></g>
 			<g className="wall" transform="translate(272,552)scale(-1,1)"><LowWall /></g>
 			<g className="wall" transform="translate(128,560)"><LowWallH /></g>
-			<g className="bubble" transform="translate(184,440)"><Bubble /></g>
+			<g id="Bubble_Terrace" className="bubble" transform="translate(184,440)"><Bubble /></g>
+			<g id="Rect_Terrace" opacity="0"><Rect xposition="300" yposition="470" />
+				<text className="desc" x="320" y="490">
+					<tspan x="320" dy="0.4em">Terrace</tspan>
+        			<tspan x="320" dy="1.8em">Now: </tspan>
+        			<tspan x="320" dy="1.4em">Next: </tspan>
+				</text>
+			</g>
 		</g>
 	);
 }
@@ -301,15 +338,15 @@ class People extends React.Component {
 
 class Bubble extends React.Component {
 	render() {
-	return (
-		<g>
-			<path d="M0,43.8c0-13.3,10.7-29.4,24-36c4-2,7.7-2.9,11-2.8c7.7,0.1,20,6.7,20,16c0,5.7-7,11.9-10.3,17.6L32,76   l-8-4.2L5.3,56.2C2,53.7,0,49.5,0,43.8z"/>
-			<path fill="#000000" opacity="9.000000e-002" d="M32,76l-8-4.2L5.3,56.2C2,53.7,0,49.5,0,43.8c0-1.7,0.2-3.5,0.5-5.2l37.7,19L32,76z"/>
-			<path d="M8,48c0-13.3,10.7-29.4,24-36s24-1.3,24,12c0,5.7-2,11.9-5.3,17.6L32,76L13.3,60.4C10,57.9,8,53.7,8,48z"/>
-			<path fill="#000000" opacity="0.19" d="M8,48c0-13.3,10.7-29.4,24-36s24-1.3,24,12c0,5.7-2,11.9-5.3,17.6L32,76L13.3,60.4C10,57.9,8,53.7,8,48z"/>
-		</g>
-	);
-}
+		return (
+			<g>
+				<path d="M0,43.8c0-13.3,10.7-29.4,24-36c4-2,7.7-2.9,11-2.8c7.7,0.1,20,6.7,20,16c0,5.7-7,11.9-10.3,17.6L32,76   l-8-4.2L5.3,56.2C2,53.7,0,49.5,0,43.8z"/>
+				<path fill="#000000" opacity="9.000000e-002" d="M32,76l-8-4.2L5.3,56.2C2,53.7,0,49.5,0,43.8c0-1.7,0.2-3.5,0.5-5.2l37.7,19L32,76z"/>
+				<path d="M8,48c0-13.3,10.7-29.4,24-36s24-1.3,24,12c0,5.7-2,11.9-5.3,17.6L32,76L13.3,60.4C10,57.9,8,53.7,8,48z"/>
+				<path fill="#000000" opacity="0.19" d="M8,48c0-13.3,10.7-29.4,24-36s24-1.3,24,12c0,5.7-2,11.9-5.3,17.6L32,76L13.3,60.4C10,57.9,8,53.7,8,48z"/>
+			</g>
+		);
+	}
 }
 
 class BubblesFill extends React.Component {
@@ -457,8 +494,10 @@ export default class Map extends React.Component {
 	render() {
     	return (
     		<div className="map">
-        		<MapAll {...window.__initial_props}/>
-    		</div>
+				<MapAll {...window.__initial_props}/>
+			</div>
     	);
 	}
 }
+
+// <MapAll {...window.__initial_props}/>

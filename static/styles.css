@@ -1,0 +1,13 @@
+.floor{
+    fill: #99999;
+}
+.floor_room {
+    fill: #999999;
+}
+.desc {
+    fill: white;
+}
+#Bubble_Green:hover + #Rect_Green { opacity: 1; }
+#Bubble_Brown:hover + #Rect_Brown { opacity: 1; }
+#Bubble_Kafe:hover + #Rect_Kafe { opacity: 1; }
+#Bubble_Terrace:hover + #Rect_Terrace { opacity: 1; }
