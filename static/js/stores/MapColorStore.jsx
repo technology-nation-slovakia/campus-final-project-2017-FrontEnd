@@ -7,7 +7,7 @@ class MapColorStore extends EventEmitter {
         super()
         this.mapColors = {
                 id: 1,
-                text: 'jedna',
+                text: 'initial',
                 complete: false,
                 colorCaffe: '#99cc33',
                 colorGreen: '#99cc33',
@@ -15,21 +15,6 @@ class MapColorStore extends EventEmitter {
                 colorTerrace: '#99cc33',
             };
     }
-
-    changeColor() {
-
-        this.mapColors = {
-            id: 3,
-            text: 'tri',
-            complete: false,
-            colorCaffe: '#cc291f',
-            colorGreen: '#cc291f',
-            colorBrown: '#99cc33',
-            colorTerrace: '#99cc33',
-        };
-
-        this.emit("change");
-  }
 
     getAll() {
         return this.mapColors;

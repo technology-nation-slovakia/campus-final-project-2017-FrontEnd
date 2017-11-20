@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import MapColorStore from '../stores/MapColorStore';
 import * as MapColorActions from '../actions/MapColorActions';
@@ -21,8 +22,18 @@ class MapAll extends React.Component {
 	}
 	//only fires once on start and listen to change
 	componentWillMount() {
-		MapColorStore.on("change", this.getMapColor);
+		axios.get("http://campus-final-project-2017-dusanjankovic.c9users.io:8080/data").then((data) => {
+			const colors = data.data;
+			this.setState({ colors })
+		});
 	}
+	//load data on start
+	// componentDidMount() {
+	// 	axios("http://campus-final-project-2017-dusanjankovic.c9users.io:8080/data").then((data) => {
+	// 		const colors = data.data;
+	// 		this.setState({ colors })
+	// 	});
+	// }
 	//prevent memory leak REACT FLUX TUTORIAL #14 - React & Flux Memory Leaks
 	componentWillUnmount() {
 		MapColorStore.removeListener("change", this.geMapColor);

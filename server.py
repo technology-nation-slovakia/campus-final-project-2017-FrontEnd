@@ -16,11 +16,11 @@ settings.configure(
 
 
 #fake data
-colorData = {'id' : 3,
-            'text' : 'tri',
+colorData = {'id' : 2,
+            'text' : 'from_server',
             'complete' : 'false',
             'colorCaffe' : '#cc291f',
-            'colorGreen' : '#cc291f',
+            'colorGreen' : '#99cc33',
             'colorBrown' : '#cc291f',
             'colorTerrace' :  '#99cc33',
         }
