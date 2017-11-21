@@ -67,7 +67,6 @@ class MapAll extends React.Component {
 				<OpenSpace />
 				<Terrace color={colorTerrace} />
 				<People />
-				<BubblesFill />
 		    </svg>
 		    <button onClick={this.reloadMapColor.bind(this)}>Reload!</button>
 	    </div>
@@ -114,7 +113,7 @@ class GreenMeetingRoom extends React.Component {
 				<g className="wall" transform="translate(640,256)scale(-1,1)"><DoubleWallH /></g>
 				<g className="wall" transform="translate(560,264)"><DoubleWallV /></g>
 				<g className="wall" transform="translate(544,272)"><SingleWall /></g>
-				<g id="Bubble_Green" className="bubble" transform="translate(560,184)"><Bubble /></g>
+				<g id="Bubble_Green" className="bubble" ><Bubble_Green /></g>
 				<g id="Rect_Green" opacity="0"><Rect xposition="665" yposition="230" />
 					<text className="desc" x="685" y="250">
 					<tspan x="685" dy="0.4em">Green Meeting Room</tspan>
@@ -135,7 +134,7 @@ class BrownMeetingRoom extends React.Component {
 			<g className="wall" transform="translate(480,320)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(592,344)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(560,360)scale(-1,1)"><DoubleWallH /></g>
-			<g id="Bubble_Brown" className="bubble" transform="translate(472,288)"><Bubble /></g>
+			<g id="Bubble_Brown"><Bubble_Brown /></g>
 			<g id="Rect_Brown" opacity="0"><Rect xposition="585" yposition="330" />
 				<text className="desc" x="605" y="350">
 					<tspan x="605" dy="0.4em">Brown Meeting Room</tspan>
@@ -182,7 +181,7 @@ class Kafe extends React.Component {
 			<g className="wall" transform="translate(880,184)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(848,200)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(816,216)scale(-1,1)"><DoubleWallH /></g>
-			<g id="Bubble_Kafe" className="bubble" transform="translate(768,112)"><Bubble /></g>
+			<g id="Bubble_Kafe" className="bubble"><Bubble_Kafe /></g>
 			<g id="Rect_Kafe" opacity="0"><Rect xposition="850" yposition="110" />
 				<text className="desc" x="870" y="130">
 					<tspan x="870" dy="0.4em">Kafe</tspan>
@@ -244,7 +243,7 @@ class Terrace extends React.Component {
 			<g className="wall" transform="translate(336,520)scale(-1,1)"><LowWall /></g>
 			<g className="wall" transform="translate(272,552)scale(-1,1)"><LowWall /></g>
 			<g className="wall" transform="translate(128,560)"><LowWallH /></g>
-			<g id="Bubble_Terrace" className="bubble" transform="translate(184,440)"><Bubble /></g>
+			<g id="Bubble_Terrace" className="bubble" ><Bubble_Terrace /></g>
 			<g id="Rect_Terrace" opacity="0"><Rect xposition="300" yposition="470" />
 				<text className="desc" x="320" y="490">
 					<tspan x="320" dy="0.4em">Terrace</tspan>
@@ -360,28 +359,58 @@ class Bubble extends React.Component {
 	}
 }
 
-class BubblesFill extends React.Component {
+class Bubble_Brown extends React.Component {
 	render() {
-	return (
-		<g>
-			<g transform="translate(520,296)scale(-1,1)">
-				<path fill-rule="evenodd" clip-rule="evenodd" fill="#2D3134" d="M25,18.5l-18-9c-3.3-1.7-6-0.3-6,3v9c0,3.3,2.7,7.3,6,9l10,5v8l8-4  l0,0c3.3,1.7,6,0.3,6-3v-9C31,24.2,28.3,20.2,25,18.5z"/>
+		return (
+			<g>
+				<g className="bubble" transform="translate(472,288)"><Bubble /></g>
+				<g transform="translate(520,296)scale(-1,1)">
+					<path fill-rule="evenodd" clip-rule="evenodd" fill="#2D3134" d="M25,18.5l-18-9c-3.3-1.7-6-0.3-6,3v9c0,3.3,2.7,7.3,6,9l10,5v8l8-4  l0,0c3.3,1.7,6,0.3,6-3v-9C31,24.2,28.3,20.2,25,18.5z"/>
+				</g>
 			</g>
-			<g transform="translate(232,448)scale(-1,1)">
-				<path fill="#2D3134" d="M17.9,30.4l10.8-5.4c0.3-0.1,0.4-0.5,0.2-1S28.4,23.2,28,23l-4.6-2.3l3.3-1.6c0.4-0.2,0.4-0.8,0-1.4  c-0.4-0.6-1-0.9-1.4-0.7l-4.7,2.4L4,11c-0.4-0.2-0.8-0.1-0.9,0.2S3,11.9,3.3,12.4l10.8,16.1c0.6,0.9,0.9,1.9,0.9,2.7v8.4  c0,1-0.8,1.4-1.8,0.9L11,39.5c0,0,0,0,0,0c-1.3-0.6-1.2,1.4,0.1,2l10,5c1.2,0.6,1.4-1.1,0.2-1.9c-0.1-0.1-0.2-0.1-0.3-0.2l-1.2-0.6  c-1-0.5-2.7-2.2-2.7-3.2v-8.4C17,31.4,17.3,30.7,17.9,30.4z M25.6,23.8l-4,2l-4.2-2.1l4-2L25.6,23.8z M18.6,20.3l-4,2l-4.2-2.1l-4-6  L18.6,20.3z"/>
-			</g>
-			<g transform="translate(608,192)scale(-1,1)">
-				<path fill="#2D3134" d="M27.8,28.4c-2.1,2.4-4.5,1.7-8.9,1.9c-5.6,0.2-4.6,5.5-3.6,8.6c-1.2-1.8-2.4-3.7-3-5.5  c-0.9-3.2,1.1-4.3,2.5-5.6c1.1-1.1,2-2.2,2.3-4c0.4,0,2.8,0,2.7-2.5c-0.1-2.9-2.7-7.4-5.3-9.9c0.4,2.2-0.4,2.9-1.3,4.8  c-1.2,2.7,1.2,5.5,2.5,6.6c0,0,0,0,0,0c-0.5,2.3-2.1,3.5-3.6,4.8c0.7-1.7,1.2-5.1-3.1-9.4C5.6,14.6,3.7,13.3,2,9.8  c-1.5,3.3-1.2,9.7,1.8,14.4c2.3,3.7,5.8,4.7,6.8,4.9c-0.6,0.7-1,1.6-0.8,3c0.6,3.7,4.4,7.1,5.5,10.8c0.2,0.6,0.6,1.1,1.1,1.4h0  c0.9,0.4,1.4-0.2,1.1-1.1c0-0.1-0.1-0.2-0.1-0.4c1.3,1,5.8,4.1,8.6,2.2C29.6,42.5,29.9,34.6,27.8,28.4z M15.8,14.3  c0,0,1.2,2.4,1.3,5.9c0.1,2.2,0,3.1-0.1,3.3c-0.4-0.2-0.9-0.5-1.2-0.8c0-0.1,0-0.1,0.1-0.2C17,18.7,15.8,14.3,15.8,14.3z M10.7,28.9  c-0.5-0.6-2.2-2.6-4.4-6.8c-3-5.8-3.2-7.8-3.2-7.8s2.5,6.7,8.4,13.5c0,0,0.1,0.1,0.1,0.1c-0.1,0.1-0.2,0.2-0.3,0.3  C11.1,28.5,10.9,28.7,10.7,28.9z M21.5,40.4c-1.3,1-3.6,1.7-4.3,2c-0.4-0.9-0.8-1.7-1.4-2.6c0,0,0.1,0,0.1,0  c7.4-1.4,10.5-6.9,10.5-6.9S25.6,37.2,21.5,40.4z"/>
-			</g>
-			<g transform="translate(816,120)scale(-1,1)">
-				<path fill-rule="evenodd" clip-rule="evenodd" fill="#2D3134" d="M24.9,39.5c0.6,0.7,1.3,1.2,2.1,1.6c2.3,1.2,4.2,0.2,4.2-2.1   c0-2.3-1.9-5.1-4.2-6.3c-0.1-0.1-0.3-0.1-0.4-0.2v-1L3.8,20.1v2.3c0,4.7,2.9,11.5,6.9,15.4l-8.2-4.1c0.6,1.7,2.7,3.9,5.4,5.2   l14.5,7.2c2.6,1.3,4.8,1.3,5.4,0.1l-8.2-4.1C21.8,42.3,23.6,41.3,24.9,39.5z M26.5,34.1c0.1,0,0.3,0.1,0.4,0.2   c1.4,0.7,2.6,2.5,2.6,3.9c0,1.4-1.2,2-2.6,1.3c-0.5-0.3-1-0.7-1.4-1.1C26.1,37.1,26.5,35.7,26.5,34.1z"/>
-				<path fill-rule="evenodd" clip-rule="evenodd" fill="#2D3134" d="M14.6,24.3c0,0,4.1,0.4,3.7-2.5c-0.4-2.9-2.5-3.9-2.9-6.1   c-0.6-2.7,1.2-3.1,1.2-3.1s-3-0.6-3.5,1.9c-0.4,2.1,1.3,3.7,1.8,5.6C15.5,22,14.6,24.3,14.6,24.3z"/>
-			</g>
-		</g>
-
-	);
-
+		);
+	}
 }
+
+class Bubble_Green extends React.Component {
+	render() {
+		return (
+			<g>
+				<g className="bubble" transform="translate(560,184)"><Bubble /></g>
+				<g transform="translate(608,192)scale(-1,1)">
+					<path fill="#2D3134" d="M27.8,28.4c-2.1,2.4-4.5,1.7-8.9,1.9c-5.6,0.2-4.6,5.5-3.6,8.6c-1.2-1.8-2.4-3.7-3-5.5  c-0.9-3.2,1.1-4.3,2.5-5.6c1.1-1.1,2-2.2,2.3-4c0.4,0,2.8,0,2.7-2.5c-0.1-2.9-2.7-7.4-5.3-9.9c0.4,2.2-0.4,2.9-1.3,4.8  c-1.2,2.7,1.2,5.5,2.5,6.6c0,0,0,0,0,0c-0.5,2.3-2.1,3.5-3.6,4.8c0.7-1.7,1.2-5.1-3.1-9.4C5.6,14.6,3.7,13.3,2,9.8  c-1.5,3.3-1.2,9.7,1.8,14.4c2.3,3.7,5.8,4.7,6.8,4.9c-0.6,0.7-1,1.6-0.8,3c0.6,3.7,4.4,7.1,5.5,10.8c0.2,0.6,0.6,1.1,1.1,1.4h0  c0.9,0.4,1.4-0.2,1.1-1.1c0-0.1-0.1-0.2-0.1-0.4c1.3,1,5.8,4.1,8.6,2.2C29.6,42.5,29.9,34.6,27.8,28.4z M15.8,14.3  c0,0,1.2,2.4,1.3,5.9c0.1,2.2,0,3.1-0.1,3.3c-0.4-0.2-0.9-0.5-1.2-0.8c0-0.1,0-0.1,0.1-0.2C17,18.7,15.8,14.3,15.8,14.3z M10.7,28.9  c-0.5-0.6-2.2-2.6-4.4-6.8c-3-5.8-3.2-7.8-3.2-7.8s2.5,6.7,8.4,13.5c0,0,0.1,0.1,0.1,0.1c-0.1,0.1-0.2,0.2-0.3,0.3  C11.1,28.5,10.9,28.7,10.7,28.9z M21.5,40.4c-1.3,1-3.6,1.7-4.3,2c-0.4-0.9-0.8-1.7-1.4-2.6c0,0,0.1,0,0.1,0  c7.4-1.4,10.5-6.9,10.5-6.9S25.6,37.2,21.5,40.4z"/>
+				</g>
+			</g>
+		);
+	}
+}
+
+class Bubble_Terrace extends React.Component {
+	render() {
+		return (
+			<g>
+				<g className="bubble" transform="translate(184,440)"><Bubble /></g>
+				<g transform="translate(232,448)scale(-1,1)">
+					<path fill="#2D3134" d="M17.9,30.4l10.8-5.4c0.3-0.1,0.4-0.5,0.2-1S28.4,23.2,28,23l-4.6-2.3l3.3-1.6c0.4-0.2,0.4-0.8,0-1.4  c-0.4-0.6-1-0.9-1.4-0.7l-4.7,2.4L4,11c-0.4-0.2-0.8-0.1-0.9,0.2S3,11.9,3.3,12.4l10.8,16.1c0.6,0.9,0.9,1.9,0.9,2.7v8.4  c0,1-0.8,1.4-1.8,0.9L11,39.5c0,0,0,0,0,0c-1.3-0.6-1.2,1.4,0.1,2l10,5c1.2,0.6,1.4-1.1,0.2-1.9c-0.1-0.1-0.2-0.1-0.3-0.2l-1.2-0.6  c-1-0.5-2.7-2.2-2.7-3.2v-8.4C17,31.4,17.3,30.7,17.9,30.4z M25.6,23.8l-4,2l-4.2-2.1l4-2L25.6,23.8z M18.6,20.3l-4,2l-4.2-2.1l-4-6  L18.6,20.3z"/>
+				</g>
+			</g>
+		);
+	}
+}
+
+class Bubble_Kafe extends React.Component {
+	render() {
+		return (
+			<g>
+				<g className="bubble" transform="translate(768,112)"><Bubble /></g>
+				<g transform="translate(816,120)scale(-1,1)">
+					<path fill-rule="evenodd" clip-rule="evenodd" fill="#2D3134" d="M24.9,39.5c0.6,0.7,1.3,1.2,2.1,1.6c2.3,1.2,4.2,0.2,4.2-2.1   c0-2.3-1.9-5.1-4.2-6.3c-0.1-0.1-0.3-0.1-0.4-0.2v-1L3.8,20.1v2.3c0,4.7,2.9,11.5,6.9,15.4l-8.2-4.1c0.6,1.7,2.7,3.9,5.4,5.2   l14.5,7.2c2.6,1.3,4.8,1.3,5.4,0.1l-8.2-4.1C21.8,42.3,23.6,41.3,24.9,39.5z M26.5,34.1c0.1,0,0.3,0.1,0.4,0.2   c1.4,0.7,2.6,2.5,2.6,3.9c0,1.4-1.2,2-2.6,1.3c-0.5-0.3-1-0.7-1.4-1.1C26.1,37.1,26.5,35.7,26.5,34.1z"/>
+					<path fill-rule="evenodd" clip-rule="evenodd" fill="#2D3134" d="M14.6,24.3c0,0,4.1,0.4,3.7-2.5c-0.4-2.9-2.5-3.9-2.9-6.1   c-0.6-2.7,1.2-3.1,1.2-3.1s-3-0.6-3.5,1.9c-0.4,2.1,1.3,3.7,1.8,5.6C15.5,22,14.6,24.3,14.6,24.3z"/>
+				</g>
+			</g>
+		);
+
+	}
 }
 
 class LowWallH extends React.Component {

@@ -7,7 +7,56 @@
 .desc {
     fill: white;
 }
-#Bubble_Green:hover + #Rect_Green { opacity: 1; }
-#Bubble_Brown:hover + #Rect_Brown { opacity: 1; }
-#Bubble_Kafe:hover + #Rect_Kafe { opacity: 1; }
-#Bubble_Terrace:hover + #Rect_Terrace { opacity: 1; }
+
+#Bubble_Green:hover + #Rect_Green { animation: none; opacity: 1; }
+#Bubble_Brown:hover + #Rect_Brown { animation: none; opacity: 1; }
+#Bubble_Kafe:hover + #Rect_Kafe { animation: none; opacity: 1; }
+#Bubble_Terrace:hover + #Rect_Terrace { animation: none; opacity: 1; }
+
+#Bubble_Green:hover {-webkit-animation: mover 0.5s infinite  alternate;
+                            animation: mover 0.5s infinite  alternate;}
+
+#Bubble_Brown:hover {-webkit-animation: mover 0.5s infinite  alternate;
+                            animation: mover 0.5s infinite  alternate;}
+
+#Bubble_Kafe:hover {-webkit-animation: mover 0.5s infinite  alternate;
+                            animation: mover 0.5s infinite  alternate;}
+
+#Bubble_Terrace:hover {-webkit-animation: mover 0.5s infinite  alternate;
+                            animation: mover 0.5s infinite  alternate;}
+
+@keyframes Show {
+    0% { opacity: 1;}
+    20% { opacity: .1;}
+    25% { opacity: .0;}
+    100% { opacity: .0;}
+}
+
+#Rect_Kafe {
+   animation: Show 20s infinite linear;
+   animation-delay: 0s;
+}
+
+#Rect_Green {
+   animation: Show 20s infinite linear;
+   animation-delay: 5s;
+}
+
+#Rect_Brown {
+   animation: Show 20s infinite linear;
+   animation-delay: 10s;
+}
+
+#Rect_Terrace {
+   animation: Show 20s infinite linear;
+   animation-delay: 15s;
+}
+
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
