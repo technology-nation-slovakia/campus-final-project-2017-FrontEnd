@@ -3,3 +3,4 @@ venv
 *.swp
 node_modules
 static/build
+.eslintrc

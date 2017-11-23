@@ -4,6 +4,8 @@ import axios from 'axios';
 import MapColorStore from '../stores/MapColorStore';
 import * as MapColorActions from '../actions/MapColorActions';
 
+import AutoUpdateMap from './AutoUpdateMap';
+
 
 class MapAll extends React.Component {
 	constructor() {
@@ -20,27 +22,25 @@ class MapAll extends React.Component {
 				colors: MapColorStore.getAll(),
 		});
 	}
+
+  reloadMapColor() {
+		MapColorActions.reloadMapColor();
+	}
+
 	//only fires once on start and listen to change
 	componentWillMount() {
-		axios.get("http://campus-final-project-2017-dusanjankovic.c9users.io:8080/data").then((data) => {
-			const colors = data.data;
-			this.setState({ colors })
+		this.reloadMapColor();
+		MapColorStore.on("change", () => {
+			this.setState({
+				colors: MapColorStore.getAll()
+			});
 		});
+
 	}
-	//load data on start
-	// componentDidMount() {
-	// 	axios("http://campus-final-project-2017-dusanjankovic.c9users.io:8080/data").then((data) => {
-	// 		const colors = data.data;
-	// 		this.setState({ colors })
-	// 	});
-	// }
-	//prevent memory leak REACT FLUX TUTORIAL #14 - React & Flux Memory Leaks
 	componentWillUnmount() {
 		MapColorStore.removeListener("change", this.geMapColor);
 
 	}
-
-
 
 	reloadMapColor() {
 		MapColorActions.reloadMapColor();
@@ -69,10 +69,12 @@ class MapAll extends React.Component {
 				<People />
 		    </svg>
 		    <button onClick={this.reloadMapColor.bind(this)}>Reload!</button>
+		    <AutoUpdateMap />
 	    </div>
 	  );
   }
 }
+
 
 class Rect extends React.Component {
 	render() {
