@@ -8,26 +8,20 @@
     fill: white;
 }
 
+#map {
+filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));}
+
+#map:hover .rect { animation: none; }
+
 #Bubble_Green:hover + #Rect_Green { animation: none; opacity: 1; }
 #Bubble_Brown:hover + #Rect_Brown { animation: none; opacity: 1; }
 #Bubble_Kafe:hover + #Rect_Kafe { animation: none; opacity: 1; }
 #Bubble_Terrace:hover + #Rect_Terrace { animation: none; opacity: 1; }
 
-#Bubble_Green:hover {-webkit-animation: mover 0.5s infinite  alternate;
-                            animation: mover 0.5s infinite  alternate;}
-
-#Bubble_Brown:hover {-webkit-animation: mover 0.5s infinite  alternate;
-                            animation: mover 0.5s infinite  alternate;}
-
-#Bubble_Kafe:hover {-webkit-animation: mover 0.5s infinite  alternate;
-                            animation: mover 0.5s infinite  alternate;}
-
-#Bubble_Terrace:hover {-webkit-animation: mover 0.5s infinite  alternate;
-                            animation: mover 0.5s infinite  alternate;}
 
 @keyframes Show {
     0% { opacity: 1;}
-    20% { opacity: .1;}
+    20% { opacity: 1;}
     25% { opacity: .0;}
     100% { opacity: .0;}
 }
@@ -60,3 +54,16 @@
     0% { transform: translateY(0); }
     100% { transform: translateY(-20px); }
 }
+
+
+#Bubble_Green:hover {-webkit-animation: mover 0.5s infinite  alternate;
+                            animation: mover 0.5s infinite  alternate;}
+
+#Bubble_Brown:hover {-webkit-animation: mover 0.5s infinite  alternate;
+                            animation: mover 0.5s infinite  alternate;}
+
+#Bubble_Kafe:hover {-webkit-animation: mover 0.5s infinite  alternate;
+                            animation: mover 0.5s infinite  alternate;}
+
+#Bubble_Terrace:hover {-webkit-animation: mover 0.5s infinite  alternate;
+                            animation: mover 0.5s infinite  alternate;}
