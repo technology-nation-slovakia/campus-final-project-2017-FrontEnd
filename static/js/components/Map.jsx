@@ -51,13 +51,14 @@ class MapAll extends React.Component {
     		marginTop: "30px"
 		};
 
-		const { colorCaffe, colorGreen, colorTerrace, colorBrown } = this.state.colors;
+		const { colorCaffe, colorGreen, colorTerrace, colorBrown, nameCaffeNow, nameCaffeThen } = this.state.colors;
+
 
 	  return (
 	  	<div style={mapStyle}>
 		    <svg width="1280" height="640" id="map">
 				<Floor color ="#999999"/>
-				<Kafe color={colorCaffe}/>
+				<Kafe color={colorCaffe} nameNow={nameCaffeNow} nameThen={nameCaffeThen}/>
 				<Hall />
 				<CommonSpace />
 				<g fill="#999999" className="wall" transform="translate(560,280)scale(-1,1)"><DoubleWallH /></g>
@@ -164,6 +165,14 @@ class Hall extends React.Component {
 
 class Kafe extends React.Component {
 	render() {
+		const nowEventName = this.props.nameNow ?
+        'NOW:  ' + this.props.nameNow :
+        'NOW:  FREE ROOM';
+
+         const thenEventName = this.props.nameThen ?
+         'THEN:  ' + this.props.nameThen :
+         'THEN:  FREE ROOM';
+
 	return (
 		<g fill={this.props.color}>
 			<g className="wall" transform="translate(736,32)scale(-1,1)"><DoubleWallH /></g>
@@ -189,8 +198,8 @@ class Kafe extends React.Component {
 			<g id="Rect_Kafe" className="rect" opacity="0"><Rect xposition="850" yposition="110" />
 				<text className="desc" x="870" y="130">
 					<tspan x="870" dy="0.4em">Kafe</tspan>
-        			<tspan x="870" dy="1.8em">Now: </tspan>
-        			<tspan x="870" dy="1.4em">Next: </tspan>
+        			<tspan x="870" dy="1.8em">{nowEventName}</tspan>
+        			<tspan x="870" dy="1.4em">{thenEventName}</tspan>
 				</text>
 			</g>
 		</g>
