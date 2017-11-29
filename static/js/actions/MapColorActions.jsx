@@ -6,7 +6,7 @@ import axios from 'axios';
 //there are 4 requests for each room separetly because when I wanted use genereator it would demand additional changes to babel
 // and stuff that Im not familiar with yet
 export function reloadMapColor() {
-    axios.get("http://campus-final-project-2017-dusanjankovic.c9users.io:8080/data1").then((data1) => {
+    axios.get("https://meet-room-restapi.eu-gb.mybluemix.net/api/places/1/items/now").then((data1) => {
 
         // if there is ongoing event and next event that day, API sends Array of 2,
         // the ongoing event data[0] will add red color to
