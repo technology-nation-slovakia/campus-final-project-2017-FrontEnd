@@ -15,6 +15,12 @@ class MapColorStore extends EventEmitter {
                 colorTerrace: '#99cc33',
                 nameCaffeNow: null,
                 nameCaffeThen: null,
+                nameTerraceNow: null,
+                nameTerraceThen: null,
+                nameBrownNow: null,
+                nameBrownThen: null,
+                nameGreenNow: null,
+                nameGreenThen: null,
             };
     }
 

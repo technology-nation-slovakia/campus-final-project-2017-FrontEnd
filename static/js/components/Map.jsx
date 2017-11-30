@@ -51,23 +51,31 @@ class MapAll extends React.Component {
     		marginTop: "30px"
 		};
 
-		const { colorCaffe, colorGreen, colorTerrace, colorBrown, nameCaffeNow, nameCaffeThen } = this.state.colors;
+		const { colorCaffe, colorGreen, colorTerrace, colorBrown, nameCaffeNow, nameCaffeThen,
+				nameTerraceNow, nameTerraceThen, nameBrownNow, nameBrownThen,
+				nameGreenNow, nameGreenThen } = this.state.colors;
 
 
 	  return (
 	  	<div style={mapStyle}>
-		    <svg width="1280" height="640" id="map">
-				<Floor color ="#999999"/>
-				<Kafe color={colorCaffe} nameNow={nameCaffeNow} nameThen={nameCaffeThen}/>
-				<Hall />
-				<CommonSpace />
-				<g fill="#999999" className="wall" transform="translate(560,280)scale(-1,1)"><DoubleWallH /></g>
-				<PrivateOffices color="#999999" />
-				<GreenMeetingRoom color={colorGreen} />
-				<BrownMeetingRoom color={colorBrown} />
-				<OpenSpace />
-				<Terrace color={colorTerrace} />
-				<People />
+		    <svg width="1280" height="640">
+		    	<g id="map">
+					<Floor color ="#999999"/>
+					<Kafe color={colorCaffe} />
+					<CommonSpace />
+					<GreenMeetingRoom color={colorGreen} />
+					<g fill="#999999" className="wall" transform="translate(560,280)scale(-1,1)"><DoubleWallH /></g>
+					<PrivateOffices />
+					<BrownMeetingRoom color={colorBrown} />
+					<OpenSpace />
+					<Terrace color={colorTerrace} />
+					<People />
+
+					<Kafe_Rect color={colorCaffe} nameNow={nameCaffeNow} nameThen={nameCaffeThen}/>
+					<BrownMeetingRoom_Rect color={colorBrown} nameNow={nameBrownNow} nameThen={nameBrownThen}/>
+					<GreenMeetingRoom_Rect color={colorGreen} nameNow={nameGreenNow} nameThen={nameGreenThen}/>
+					<Terrace_Rect color={colorTerrace} nameNow={nameTerraceNow} nameThen={nameTerraceThen}/>
+				</g>
 		    </svg>
 		    <button onClick={this.reloadMapColor.bind(this)}>Reload!</button>
 		    <AutoUpdateMap />
@@ -76,54 +84,94 @@ class MapAll extends React.Component {
   }
 }
 
-
-class Rect extends React.Component {
+class Terrace extends React.Component {
 	render() {
-		return (
-			<g>
-			<g><rect className="description" x={this.props.xposition} y={this.props.yposition} width="320" height="100" opacity = "0.95" /></g>
+	return (
+		<g fill={this.props.color}>
+			<g transform="translate(430,200)scale(3)">
+				<polygon fill="#999999" className="floor" points="-79.867,71 -15.867,103 -79.867,135 -143.867,103 						"/>
 			</g>
-		);
-	}
+			<g transform="translate(430,200)scale(3)">
+				<polygon opacity="0.3" points="-79.867,71 -15.867,103 -79.867,135 -143.867,103 						"/>
+			</g>
+			<g className="wall" transform="translate(208,408)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(144,440)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(96,464)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(0,496)"><LowWallH /></g>
+			<g className="wall" transform="translate(64,528)"><LowWallH /></g>
+			<g className="wall" transform="translate(240,440)"><LowWallH /></g>
+			<g className="wall" transform="translate(288,464)"><LowWallH /></g>
+			<g className="wall" transform="translate(384,496)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(336,520)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(272,552)scale(-1,1)"><LowWall /></g>
+			<g className="wall" transform="translate(128,560)"><LowWallH /></g>
+		</g>
+	);
+}
 }
 
-class PrivateOffices extends React.Component {
+class Terrace_Rect extends React.Component {
 	render() {
-		return (
-			<g fill={this.props.color}>
-				<g className="wall" transform="translate(704,208)"><DoubleWallV /></g>
-				<g className="wall" transform="translate(736,224)"><DoubleWallV /></g>
-				<g className="wall" transform="translate(768,240)"><DoubleWallV /></g>
-				<g className="wall" transform="translate(832,256)scale(-1,1)"><DoubleWallH /></g>
-				<g className="wall" transform="translate(800,272)scale(-1,1)"><DoubleWallH /></g>
-				<g className="wall" transform="translate(768,288)scale(-1,1)"><DoubleWallH /></g>
-				<g className="wall" transform="translate(736,304)scale(-1,1)"><DoubleWallH /></g>
-				<g className="wall" transform="translate(704,320)scale(-1,1)"><DoubleWallH /></g>
-				<g className="wall" transform="translate(672,336)scale(-1,1)"><DoubleWallH /></g>
-				<g className="wall" transform="translate(496,296)"><DoubleWallV /></g>
-				<g className="wall" transform="translate(528,312)"><DoubleWallV /></g>
-				<g className="wall" transform="translate(560,328)"><DoubleWallV /></g>
-				<g className="wall" transform="translate(592,344)"><DoubleWallV /></g>
+		const nowEventName = this.props.nameNow ?
+        'NOW:  ' + this.props.nameNow :
+        'NOW:  FREE ROOM';
+
+        const thenEventName = this.props.nameThen ?
+        'THEN:  ' + this.props.nameThen :
+        'THEN:  FREE ROOM';
+	return (
+		<g fill={this.props.color}>
+			<g id="Bubble_Terrace" className="bubble" ><Bubble_Terrace /></g>
+			<g id="Rect_Terrace" className="rect" opacity="0"><Rect xposition="280" yposition="440" />
+				<text className="desc" x="300" y="460">
+					<tspan x="300" dy="0.4em">Terrace</tspan>
+        			<tspan x="300" dy="1.8em">{nowEventName}</tspan>
+        			<tspan x="300" dy="1.4em">{thenEventName}</tspan>
+				</text>
 			</g>
-		);
-	}
+		</g>
+	);
+}
 }
 
 class GreenMeetingRoom extends React.Component {
 	render() {
 		return (
 			<g fill={this.props.color}>
+				<g transform="translate(427,200)scale(3)">
+					<polygon fill="#999999" className="floor" points="53.629,12.4 76.562,23.867 53.629,35.334 30.695,23.867 						"/>
+				</g>
+				<g transform="translate(427,200)scale(3)">
+					<polygon opacity="0.3" points="53.629,12.4 76.562,23.867 53.629,35.334 30.695,23.867 						"/>
+				</g>
 				<g className="wall" transform="translate(624,232)"><SingleWall /></g>
 				<g className="wall" transform="translate(608,240)"><DoubleWallV /></g>
 				<g className="wall" transform="translate(640,256)scale(-1,1)"><DoubleWallH /></g>
 				<g className="wall" transform="translate(560,264)"><DoubleWallV /></g>
 				<g className="wall" transform="translate(544,272)"><SingleWall /></g>
+			</g>
+		);
+	}
+}
+
+class GreenMeetingRoom_Rect extends React.Component {
+	render() {
+		const nowEventName = this.props.nameNow ?
+        'NOW:  ' + this.props.nameNow :
+        'NOW:  FREE ROOM';
+
+        const thenEventName = this.props.nameThen ?
+        'THEN:  ' + this.props.nameThen :
+        'THEN:  FREE ROOM';
+
+		return (
+			<g fill={this.props.color}>
 				<g id="Bubble_Green" className="bubble" ><Bubble_Green /></g>
-				<g id="Rect_Green" opacity="0" className="rect"><Rect xposition="665" yposition="230" />
-					<text className="desc" x="685" y="250">
-					<tspan x="685" dy="0.4em">Green Meeting Room</tspan>
-        			<tspan x="685" dy="1.8em">Now: </tspan>
-        			<tspan x="685" dy="1.4em">Next: </tspan>
+				<g id="Rect_Green" opacity="0" className="rect"><Rect xposition="655" yposition="180" />
+					<text className="desc" x="675" y="200">
+					<tspan x="675" dy="0.4em">Green Meeting Room</tspan>
+        			<tspan x="675" dy="1.8em">{nowEventName}</tspan>
+        			<tspan x="675" dy="1.4em">{thenEventName}</tspan>
 				</text>
 				</g>
 			</g>
@@ -135,16 +183,38 @@ class BrownMeetingRoom extends React.Component {
 	render() {
 	return (
 		<g fill={this.props.color}>
+			<g transform="translate(432,200)scale(3)">
+				<polygon fill="#999999" className="floor" points="20.21,41.532 42.012,52.933 25.21,60.333 6.409,50.933 						"/>
+			</g>
+			<g transform="translate(432,200)scale(3)">
+				<polygon opacity="0.3" points="20.21,41.532 42.012,52.933 25.21,60.333 6.409,50.933 						"/>
+			</g>
 			<g className="wall" transform="translate(512,304)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(480,320)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(592,344)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(560,360)scale(-1,1)"><DoubleWallH /></g>
+		</g>
+	);
+}
+}
+
+class BrownMeetingRoom_Rect extends React.Component {
+	render() {
+		const nowEventName = this.props.nameNow ?
+        'NOW:  ' + this.props.nameNow :
+        'NOW:  FREE ROOM';
+
+        const thenEventName = this.props.nameThen ?
+        'THEN:  ' + this.props.nameThen :
+        'THEN:  FREE ROOM';
+	return (
+		<g fill={this.props.color}>
 			<g id="Bubble_Brown"><Bubble_Brown /></g>
-			<g id="Rect_Brown" className="rect" opacity="0"><Rect xposition="585" yposition="330" />
-				<text className="desc" x="605" y="350">
-					<tspan x="605" dy="0.4em">Brown Meeting Room</tspan>
-        			<tspan x="605" dy="1.8em">Now: </tspan>
-        			<tspan x="605" dy="1.4em">Next: </tspan>
+			<g id="Rect_Brown" className="rect" opacity="0"><Rect xposition="575" yposition="280" />
+				<text className="desc" x="595" y="300">
+					<tspan x="595" dy="0.4em">Brown Meeting Room</tspan>
+        			<tspan x="595" dy="1.8em">{nowEventName}</tspan>
+        			<tspan x="595" dy="1.4em">{thenEventName}</tspan>
 				</text>
 			</g>
 		</g>
@@ -152,29 +222,16 @@ class BrownMeetingRoom extends React.Component {
 }
 }
 
-class Hall extends React.Component {
-	render() {
-	return (
-		<g fill="#999999">
-			<g className="wall" transform="translate(720,200)scale(-1,1)"><DoubleWallH /></g>
-			<g className="wall" transform="translate(688,216)scale(-1,1)"><DoubleWallH /></g>
-		</g>
-	);
-}
-}
-
 class Kafe extends React.Component {
 	render() {
-		const nowEventName = this.props.nameNow ?
-        'NOW:  ' + this.props.nameNow :
-        'NOW:  FREE ROOM';
-
-         const thenEventName = this.props.nameThen ?
-         'THEN:  ' + this.props.nameThen :
-         'THEN:  FREE ROOM';
-
 	return (
 		<g fill={this.props.color}>
+			<g transform="translate(432,200)scale(3)">
+				<polygon fill="#999999" className="floor" points="96.74,-45.367 165.2,-10.5 114.667,15 80,-2.8 100.254,-14.797 72.12,-31.867 						"/>
+			</g>
+			<g transform="translate(432,200)scale(3)">
+				<polygon opacity="0.3" points="96.74,-45.367 165.2,-10.5 114.667,15 80,-2.8 100.254,-14.797 72.12,-31.867 						"/>
+			</g>
 			<g className="wall" transform="translate(736,32)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(704,48)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(672,64)scale(-1,1)"><DoubleWallH /></g>
@@ -194,6 +251,23 @@ class Kafe extends React.Component {
 			<g className="wall" transform="translate(880,184)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(848,200)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(816,216)scale(-1,1)"><DoubleWallH /></g>
+		</g>
+	);
+}
+}
+
+class Kafe_Rect extends React.Component {
+	render() {
+		const nowEventName = this.props.nameNow ?
+        'NOW:  ' + this.props.nameNow :
+        'NOW:  FREE ROOM';
+
+        const thenEventName = this.props.nameThen ?
+        'THEN:  ' + this.props.nameThen :
+        'THEN:  FREE ROOM';
+
+	return (
+		<g fill={this.props.color}>
 			<g id="Bubble_Kafe" className="bubble"><Bubble_Kafe /></g>
 			<g id="Rect_Kafe" className="rect" opacity="0"><Rect xposition="850" yposition="110" />
 				<text className="desc" x="870" y="130">
@@ -211,6 +285,8 @@ class CommonSpace extends React.Component {
 	render() {
 	return (
 		<g fill="#999999">
+			<g className="wall" transform="translate(720,200)scale(-1,1)"><DoubleWallH /></g>
+			<g className="wall" transform="translate(688,216)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(624,104)"><SingleWall /></g>
 			<g className="wall" transform="translate(640,112)scale(-1,1)"><DoubleWallH /></g>
 			<g className="wall" transform="translate(608,128)scale(-1,1)"><DoubleWallH /></g>
@@ -241,33 +317,29 @@ class CommonSpace extends React.Component {
 }
 }
 
-class Terrace extends React.Component {
+class PrivateOffices extends React.Component {
 	render() {
-	return (
-		<g fill={this.props.color}>
-			<g className="wall" transform="translate(208,408)scale(-1,1)"><LowWall /></g>
-			<g className="wall" transform="translate(144,440)scale(-1,1)"><LowWall /></g>
-			<g className="wall" transform="translate(96,464)scale(-1,1)"><LowWall /></g>
-			<g className="wall" transform="translate(0,496)"><LowWallH /></g>
-			<g className="wall" transform="translate(64,528)"><LowWallH /></g>
-			<g className="wall" transform="translate(240,440)"><LowWallH /></g>
-			<g className="wall" transform="translate(288,464)"><LowWallH /></g>
-			<g className="wall" transform="translate(384,496)scale(-1,1)"><LowWall /></g>
-			<g className="wall" transform="translate(336,520)scale(-1,1)"><LowWall /></g>
-			<g className="wall" transform="translate(272,552)scale(-1,1)"><LowWall /></g>
-			<g className="wall" transform="translate(128,560)"><LowWallH /></g>
-			<g id="Bubble_Terrace" className="bubble" ><Bubble_Terrace /></g>
-			<g id="Rect_Terrace" className="rect" opacity="0"><Rect xposition="300" yposition="470" />
-				<text className="desc" x="320" y="490">
-					<tspan x="320" dy="0.4em">Terrace</tspan>
-        			<tspan x="320" dy="1.8em">Now: </tspan>
-        			<tspan x="320" dy="1.4em">Next: </tspan>
-				</text>
+		return (
+			<g fill="#999999">
+				<g className="wall" transform="translate(704,208)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(736,224)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(768,240)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(832,256)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(800,272)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(768,288)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(736,304)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(704,320)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(672,336)scale(-1,1)"><DoubleWallH /></g>
+				<g className="wall" transform="translate(496,296)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(528,312)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(560,328)"><DoubleWallV /></g>
+				<g className="wall" transform="translate(592,344)"><DoubleWallV /></g>
 			</g>
-		</g>
-	);
+		);
+	}
 }
-}
+
+
 
 class OpenSpace extends React.Component {
 	render() {
@@ -297,24 +369,7 @@ class OpenSpace extends React.Component {
 }
 }
 
-class Stairs extends React.Component {
-	render() {
-	return (
-		<g className="stairs" transform="translate(600,128)">
-			<polygon fill="#999999" points="32,0 28,2 28,4 24,6 24,8 20,10 20,12 16,14 16,16 12,18 12,20 8,22 8,24 4,26 4,28 0,30 0,32    16,40 20,38 20,36 24,34 24,32 28,30 28,28 32,26 32,24 36,22 36,20 40,18 40,16 44,14 44,12 48,10 48,8  "/>
-			<polygon fill="#000000" opacity="0.11" points="0,30 16,38 16,40 0,32  "/>
-			<polygon fill="#000000" opacity="0.11" points="4,26 20,34 20,36 4,28  "/>
-			<polygon fill="#000000" opacity="0.11" points="8,22 24,30 24,32 8,24  "/>
-			<polygon fill="#000000" opacity="0.11" points="12,18 28,26 28,28 12,20  "/>
-			<polygon fill="#000000" opacity="0.11" points="16,14 32,22 32,24 16,16  "/>
-			<polygon fill="#000000" opacity="0.11" points="20,10 36,18 36,20 20,12  "/>
-			<polygon fill="#000000" opacity="0.11" points="24,6 40,14 40,16 24,8  "/>
-			<polygon fill="#000000" opacity="0.11" points="28,2 44,10 44,12 28,4  "/>
-			<path fill="#000000" opacity="0.29" d="M16,40l4-2l0-2l-4,2V40z M24,32l4-2v-2l-4,2V32z M28,28l4-2v-2l-4,2V28z M20,36l4-2v-2l-4,2V36z M44,10v2   l4-2V8L44,10z M40,15v1l4-2v-2l-4,2V15z M32,24l4-2v-2l-4,2V24z M36,20l4-2v-2l-4,2V20z"/>
-		</g>
-	);
-}
-}
+
 
 class People extends React.Component {
 	render() {
@@ -512,30 +567,47 @@ class DoubleWallH extends React.Component {
 }
 }
 
+class Rect extends React.Component {
+	render() {
+		return (
+			<g>
+			<g><rect className="description" x={this.props.xposition} y={this.props.yposition} width="320" height="100" opacity = "0.95" /></g>
+			</g>
+		);
+	}
+}
+
+class Stairs extends React.Component {
+	render() {
+	return (
+		<g className="stairs" transform="translate(600,128)">
+			<polygon fill="#999999" points="32,0 28,2 28,4 24,6 24,8 20,10 20,12 16,14 16,16 12,18 12,20 8,22 8,24 4,26 4,28 0,30 0,32    16,40 20,38 20,36 24,34 24,32 28,30 28,28 32,26 32,24 36,22 36,20 40,18 40,16 44,14 44,12 48,10 48,8  "/>
+			<polygon fill="#000000" opacity="0.11" points="0,30 16,38 16,40 0,32  "/>
+			<polygon fill="#000000" opacity="0.11" points="4,26 20,34 20,36 4,28  "/>
+			<polygon fill="#000000" opacity="0.11" points="8,22 24,30 24,32 8,24  "/>
+			<polygon fill="#000000" opacity="0.11" points="12,18 28,26 28,28 12,20  "/>
+			<polygon fill="#000000" opacity="0.11" points="16,14 32,22 32,24 16,16  "/>
+			<polygon fill="#000000" opacity="0.11" points="20,10 36,18 36,20 20,12  "/>
+			<polygon fill="#000000" opacity="0.11" points="24,6 40,14 40,16 24,8  "/>
+			<polygon fill="#000000" opacity="0.11" points="28,2 44,10 44,12 28,4  "/>
+			<path fill="#000000" opacity="0.29" d="M16,40l4-2l0-2l-4,2V40z M24,32l4-2v-2l-4,2V32z M28,28l4-2v-2l-4,2V28z M20,36l4-2v-2l-4,2V36z M44,10v2   l4-2V8L44,10z M40,15v1l4-2v-2l-4,2V15z M32,24l4-2v-2l-4,2V24z M36,20l4-2v-2l-4,2V20z"/>
+		</g>
+	);
+}
+}
+
 class Floor extends React.Component {
 	render() {
 		return (
 	  		<g fill={this.props.color}>
-		  		<g id="i100_5_" transform="translate(430,200)scale(3)">
+		  		<g transform="translate(430,200)scale(3)">
 					<polygon className="floor_room" points="74.833,-23.667 98.6,-15.6 82,-2.8 94.5,4.333 -4.167,53.667 -41,34.667 						"/>
 				</g>
-				<g id="i100_4_" transform="translate(432,200)scale(3)">
+				<g transform="translate(432,200)scale(3)">
 					<polygon className="floor_room" points="87.102,11.5 119.236,27.167 61.902,58.167 29.831,41.183 						"/>
 				</g>
-				<g id="i100_2_" transform="translate(432,200)scale(3)">
-					<polygon className="floor" points="96.74,-45.367 165.2,-10.5 114.667,15 80,-2.8 100.254,-14.797 72.12,-31.867 						"/>
-				</g>
-				<g id="i100_6_" transform="translate(427,200)scale(3)">
-					<polygon className="floor" points="53.629,12.4 76.562,23.867 53.629,35.334 30.695,23.867 						"/>
-				</g>
-				<g id="i100_3_" transform="translate(432,200)scale(3)">
-					<polygon className="floor" points="25.21,41.532 44.012,50.933 25.21,60.333 6.409,50.933 						"/>
-				</g>
-				<g id="i100_1_" transform="translate(425,200)scale(3)">
+				<g transform="translate(425,200)scale(3)">
 					<polygon className="floor_room" points="-21.119,43.967 35.734,71.9 -21.119,99.833 -77.972,71.9 						"/>
-				</g>
-				<g id="i100" transform="translate(430,200)scale(3)">
-					<polygon className="floor" points="-79.867,71 -15.867,103 -79.867,135 -143.867,103 						"/>
 				</g>
 			</g>
 		);
